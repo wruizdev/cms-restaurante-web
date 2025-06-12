@@ -1,0 +1,30 @@
+/* Sidebar fijo y alto completo */
+.sidebar {
+    position: fixed;       /* Fijo en pantalla */
+    top: 0;                /* Arriba */
+    left: 0;               /* Lado izquierdo */
+    height: 100vh;         /* 100% altura viewport */
+    width: 220px;          /* Ancho fijo, ajusta a tu gusto */
+    background-color: #f8f9fa !important;
+    padding-top: 20px;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;      /* Scroll vertical si se pasa */
+    z-index: 1000;         /* Que esté encima */
+}
+
+/* Contenido principal a la derecha del sidebar */
+.main-content {
+    margin-left: 220px;    /* Deja espacio para el sidebar */
+    padding: 20px;
+}
+
+/* Estilo nav links */
+.sidebar .nav-link {
+    color: #333;
+    font-weight: 600;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #e2e6ea;
+    color: #000;
+}
