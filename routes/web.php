@@ -32,3 +32,14 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 });
 
 require __DIR__.'/auth.php';  // Rutas Breeze de login, logout, register, etc.
+
+
+//Ruta para actualizar solo el estado de la mesa y liberar
+/*patch: indica que vamos a actualizar parcialmente un recurso (solo el campo estado).
+
+/mesas/{id}/liberar: ruta dinámica donde {id} es el ID de la mesa.
+
+[MesaController::class, 'liberar']: llama al método liberar() del controlador MesaController.
+
+->name('mesas.liberar'): asigna un nombre a esta ruta para poder usar route('mesas.liberar', $mesa->id) en la vista.*/
+Route::patch('/mesas/{id}/liberar', [MesaController::class, 'liberar'])->name('mesas.liberar');
