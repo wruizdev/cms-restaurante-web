@@ -63,24 +63,32 @@ class MesaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+
+     //Mostrar formulario edición Mesa
+    public function edit(Mesa $mesa)
     {
-        //
+        return view('admin.mesas.edit', compact('mesa'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+
+     //Actualizar datos mesa
+    public function update(Request $request, Mesa $mesa)
     {
-        //
+        $mesa->update($request->only('zona', 'estado', 'numero', 'capacidad'));
+        return redirect()->route('mesas.index')->with('success', 'Mesa actualizada con éxito');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+
+    //Eliminar mesa
+    public function destroy(Mesa $mesa)
     {
-        //
+        $mesa->delete();
+        return redirect()->route('mesas.index')->with('success', 'Mesa eliminada');
     }
 }
