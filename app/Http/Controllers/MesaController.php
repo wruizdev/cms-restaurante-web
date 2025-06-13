@@ -42,7 +42,7 @@ class MesaController extends Controller
             'capacidad' => 'required'
         ]);
 
-        Mesa::crete([
+        Mesa::create([
             'zona' => $request->zona,
             'estado' => $request->estado,
             'numero' => $request->numero,
