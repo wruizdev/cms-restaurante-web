@@ -92,6 +92,7 @@ class MesaController extends Controller
         return redirect()->route('mesas.index')->with('success', 'Mesa eliminada');
     }
 
+    //Lógica para liberar mesa vinculada al botón que aparece en la tabla del index si la mesa está ocupada
     public function liberar($id)
     {
         $mesa = Mesa::findOrFail($id);
