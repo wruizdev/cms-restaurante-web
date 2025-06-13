@@ -91,4 +91,13 @@ class MesaController extends Controller
         $mesa->delete();
         return redirect()->route('mesas.index')->with('success', 'Mesa eliminada');
     }
+
+    public function liberar($id)
+    {
+        $mesa = Mesa::findOrFail($id);
+        $mesa->estado=0; //Libre
+        $mesa->save();
+
+        return redirect()->back()->with('success', 'La mesa ha sido liberada');
+    }
 }
