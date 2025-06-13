@@ -30,21 +30,6 @@
             <td>{{ $mesa->capacidad }}</td>
             <td>{{ $mesa->estado == 0 ? 'Libre' : 'Ocupado' }}</td>
             <td>
-                <!--@if($mesa->estado): Si la mesa está ocupada (estado = 1), muestra el botón.
-
-                    <form ...>: Formulario que envía una solicitud PATCH al backend.
-
-                    action="{{ route('mesas.liberar', $mesa->id) }}": Genera la URL usando el ID de la mesa.
-
-                    @csrf: Token de seguridad (obligatorio).
-
-                    @method('PATCH'): Spoofing de método HTTP, porque los formularios HTML solo soportan GET y POST.
-
-                    <button type="submit">Liberar</button>: Botón para liberar la mesa.
-
-                    @else: Si la mesa no está ocupada, muestra un mensaje en lugar del botón.
-
-                    <span class="text-success">Libre</span>: Texto que indica que la mesa está libre.-->
                 @if($mesa->estado)
                 <form action="{{ route('mesas.liberar', $mesa->id) }}" method="POST" style="display:inline">
                     @csrf
