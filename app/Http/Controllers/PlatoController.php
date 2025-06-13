@@ -4,6 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Plato;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
+
+/*Storage	Permite trabajar con archivos (guardar, borrar, etc.)
+Rule	Permite reglas avanzadas de validación, como Rule::in([...])
+Además para poder trabajar con fotos almacenadas en estorage en el front el formulario debe incluir encype
+<form method="POST" enctype="multipart/form-data">
+Y se debe habilitar en el proyecto:
+php artisan storage:link
+*/
 
 class PlatoController extends Controller
 {
@@ -56,7 +66,7 @@ class PlatoController extends Controller
             'foto' => $rutaFoto,
             'categoria' => $request->categoria,
             'precio' => $request->precio,
-            'descripcio' => $request->descripcion
+            'descripcion' => $request->descripcion
         ]);
 
         return redirect()->route('platos.index')->with('success','Plato registrado correctamente');
@@ -77,7 +87,7 @@ class PlatoController extends Controller
     //Mostrar formulario para editar plato
     public function edit(Plato $plato)
     {
-        return view('admin.platos.index', compact('plato'));
+        return view('admin.platos.edit', compact('plato'));
     }
 
     /**
@@ -87,8 +97,31 @@ class PlatoController extends Controller
     //Actualizar datos plato
     public function update(Request $request, Plato $plato)
     {
-        $plato->update($request->only('nombre', 'foto', 'categoria', 'precio', 'descripcion'));
-        return redirect()->route('platos.index')->with('success', 'Plato actualizado con éxito');
+        // Validación recomendada
+    $validated = $request->validate([
+        'nombre' => 'required|string|max:255',
+        'precio' => 'required|numeric|min:0',
+        'descripcion' => 'required|string|max:1000',
+        'categoria' => ['required', Rule::in(['Entrante', 'Principal', 'Postre', 'Bebida'])],
+        'foto' => 'nullable|image|max:4096', // máx 4MB
+    ]);
+
+    // Si se sube una nueva foto, procesarla
+    if ($request->hasFile('foto')) {
+        // Eliminar la foto anterior si existe
+        if ($plato->foto && Storage::disk('public')->exists($plato->foto)) {
+            Storage::disk('public')->delete($plato->foto);
+        }
+
+        // Guardar nueva foto y actualizar campo
+        $path = $request->file('foto')->store('platos', 'public');
+        $validated['foto'] = $path;
+    }
+
+    // Actualizar el plato con los datos validados
+    $plato->update($validated);
+
+    return redirect()->route('platos.index')->with('success', 'Plato actualizado con éxito');
     }
 
     /**
