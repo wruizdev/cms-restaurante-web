@@ -34,22 +34,18 @@
                 @endif
             </td>
             <td>
-                @switch($plato->categoria)
-                @case('Entrante')
-                <span class="text-green-600 font-semibold">Entrante</span>
-                @break
-                @case('Principal')
-                <span class="text-blue-600 font-semibold">Principal</span>
-                @break
-                @case('Postre')
-                <span class="text-pink-600 font-semibold">Postre</span>
-                @break
-                @case('Bebida')
-                <span class="text-purple-600 font-semibold">Bebida</span>
-                @break
-                @default
-                <span class="text-gray-500">Desconocido</span>
-                @endswitch
+                @if ($plato->categoria === 'Entrante')
+                <span class="badge bg-success">Entrante</span>
+                @elseif ($plato->categoria === 'Principal')
+                <span class="badge bg-primary">Principal</span>
+                @elseif ($plato->categoria === 'Postre')
+                <span class="badge bg-warning text-dark">Postre</span>
+                @elseif ($plato->categoria === 'Bebida')
+                <span class="badge bg-info text-dark">Bebida</span>
+                @else
+                <span class="badge bg-secondary">Desconocido</span>
+                @endif
+
             </td>
             <td>{{ $plato->precio}}</td>
             <td>{{ $plato->descripcion}}</td>
