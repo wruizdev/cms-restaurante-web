@@ -43,3 +43,4 @@ require __DIR__.'/auth.php';  // Rutas Breeze de login, logout, register, etc.
 
 ->name('mesas.liberar'): asigna un nombre a esta ruta para poder usar route('mesas.liberar', $mesa->id) en la vista.*/
 Route::patch('/mesas/{id}/liberar', [MesaController::class, 'liberar'])->name('mesas.liberar');
+Route::patch('/reservas/{id}/visto', [ReservaController::class, 'visto'])->name('reservas.visto');
