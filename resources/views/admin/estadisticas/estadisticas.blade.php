@@ -4,7 +4,7 @@
 <div class="container mt-4">
     <h1>Estadísticas de Reservas</h1>
 
-    {{-- Contenedor oculto con los datos en JSON --}}
+    {{-- Contenedor oculto con los datos en JSON. Creamos variable jsonEstadisticas para comprimir en php puro las variables que pasamos por el controlador --}}
     @php
     $jsonEstadisticas = json_encode([
         "meses" => ["labels" => $labelsMeses, "data" => $dataMeses],
