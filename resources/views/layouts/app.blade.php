@@ -22,6 +22,9 @@
                         </li>
                         @endif
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.estadisticas') }}">Estadísticas</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('mesas.index') }}">Mesas</a>
                         </li>
                         <li class="nav-item">

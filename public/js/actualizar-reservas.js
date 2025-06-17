@@ -1,5 +1,6 @@
 function actualizarBadgeNuevasReservas() {
     fetch('/admin/reservas/nuevas')
+    //fetch("{{ route('admin.reservas.nuevas') }}") PROBAR SI FUNCIONA CON ESTO. CREO QUE SI
         .then(response => response.json())
         .then(data => {
             const badge = document.getElementById('badge-nuevas-reservas');
