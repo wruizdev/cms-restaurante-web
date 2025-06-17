@@ -29,6 +29,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('mesas', MesaController::class);
     Route::resource('platos', PlatoController::class);
     Route::resource('reservas', ReservaController::class);
+    //Para badge que anuncia nuevas reservas en el panel admin reservas.index
+    Route::get('/admin/reservas/nuevas', [ReservaController::class, 'nuevas'])->name('admin.reservas.nuevas');
 });
 
 require __DIR__.'/auth.php';  // Rutas Breeze de login, logout, register, etc.
@@ -44,3 +46,7 @@ require __DIR__.'/auth.php';  // Rutas Breeze de login, logout, register, etc.
 ->name('mesas.liberar'): asigna un nombre a esta ruta para poder usar route('mesas.liberar', $mesa->id) en la vista.*/
 Route::patch('/mesas/{id}/liberar', [MesaController::class, 'liberar'])->name('mesas.liberar');
 Route::patch('/reservas/{id}/visto', [ReservaController::class, 'visto'])->name('reservas.visto');
+
+
+
+
