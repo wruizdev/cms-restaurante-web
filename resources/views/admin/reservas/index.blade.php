@@ -7,7 +7,7 @@
 <div class="alert alert-success">{{ session('success') }}</div>
 @endif
 
-<a href="{{ route('reservas.create') }}" class="btn btn-primary mb-3">Crear Mesa</a>
+<a href="{{ route('reservas.create') }}" class="btn btn-primary mb-3">Crear Reserva</a>
 
 <table class="table table-bordered">
     <thead>
@@ -34,7 +34,7 @@
             <td>{{ $reserva->email }}</td>
             <td>{{ $reserva->comensales }}</td>
             <td>{{ $reserva->fecha }}</td>
-            <td>{{ $reserva->hora }}</td>
+            <td>{{ \Carbon\Carbon::parse($reserva->hora)->format('H:i') }}</td>
             <td>
                 @if($reserva->visto)
                 <form action="{{ route('reservas.visto', $reserva->id) }}" method="POST" style="display:inline">
