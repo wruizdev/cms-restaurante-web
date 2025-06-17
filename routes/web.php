@@ -5,13 +5,14 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\MesaController;
 use App\Http\Controllers\PlatoController;
 use App\Http\Controllers\ReservaController;
+use App\Http\Controllers\EstadisticasController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-// Dashboard genérico (puedes cambiar a prefijo admin después)
+// Dashboard genérico (se puede cambiar a prefijo admin después)
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -23,7 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Tus rutas de admin protegidas (usuarios, mesas, platos, reservas)
+// Rutas de admin protegidas (usuarios, mesas, platos, reservas)
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('usuarios', UsuarioController::class);
     Route::resource('mesas', MesaController::class);
@@ -31,6 +32,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('reservas', ReservaController::class);
     //Para badge que anuncia nuevas reservas en el panel admin reservas.index
     Route::get('/admin/reservas/nuevas', [ReservaController::class, 'nuevas'])->name('admin.reservas.nuevas');
+    Route::get('/admin/estadisticas', [EstadisticasController::class, 'index'])->name('admin.estadisticas');
 });
 
 require __DIR__.'/auth.php';  // Rutas Breeze de login, logout, register, etc.
