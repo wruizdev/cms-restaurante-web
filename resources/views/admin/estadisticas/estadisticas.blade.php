@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mt-4">
-    <h2 class="mb-4">Estadísticas de Reservas</h2>
+    <h1>Estadísticas de Reservas</h1>
 
     {{-- Contenedor oculto con los datos en JSON --}}
     @php
