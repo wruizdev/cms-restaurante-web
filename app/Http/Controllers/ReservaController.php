@@ -78,17 +78,67 @@ class ReservaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+
+    //Mostrar formulario para editar reserva
+    public function edit(Reserva $reserva)
     {
-        //
+        // Obtener mesas libres o la que ya tiene asignada la reserva
+        $mesasDisponibles = Mesa::where('estado', 0)
+            ->orWhere('id', $reserva->mesa_id)
+            ->get();
+        return view('admin.reservas.edit', compact('reserva', 'mesasDisponibles'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+
+    //Actualizar datos reserva
+    public function update(Request $request, Reserva $reserva)
     {
-        //
+
+        //Normalizar el formato de la hora
+        $request->merge([
+            'hora' => date('H:i', strtotime($request->hora))
+        ]);
+        $request->validate([
+            'mesa_id' => 'required|exists:mesas,id',
+            'nombre' => 'required|string',
+            'telefono' => 'required|string',
+            'email' => 'required|email|max:255',
+            'comensales' => 'required|integer|min:1|max:100',
+            'fecha' => 'required|date|after_or_equal:today',
+            'hora' => 'required|date_format:H:i',
+            'visto' => 'nullable|boolean',
+        ]);
+
+        // Si la mesa ha cambiado, liberar la anterior
+        if ($reserva->mesa_id != $request->mesa_id) {
+            $mesaAnterior = Mesa::find($reserva->mesa_id);
+            if ($mesaAnterior) {
+                $mesaAnterior->estado = 0; // liberar
+                $mesaAnterior->save();
+            }
+
+            // Marcar nueva mesa como ocupada
+            $nuevaMesa = Mesa::findOrFail($request->mesa_id);
+            $nuevaMesa->estado = 1;
+            $nuevaMesa->save();
+        }
+
+        // Actualizar los campos de la reserva
+        $reserva->update([
+            'mesa_id' => $request->mesa_id,
+            'nombre' => $request->nombre,
+            'telefono' => $request->telefono,
+            'email' => $request->email,
+            'comensales' => $request->comensales,
+            'fecha' => $request->fecha,
+            'hora' => $request->hora,
+            'visto' => $request->visto ?? 0,
+        ]);
+
+        return redirect()->route('reservas.index')->with('success', 'Reserva actualizada con éxito');
     }
 
     /**
