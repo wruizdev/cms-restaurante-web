@@ -7,6 +7,12 @@
 <div class="alert alert-success">{{ session('success') }}</div>
 @endif
 
+<div class="mb-3">
+    <span id="badge-nuevas-reservas" class="badge bg-danger" style="display:none;">
+        0 nuevas reservas
+    </span>
+</div>
+
 <a href="{{ route('reservas.create') }}" class="btn btn-primary mb-3">Crear Reserva</a>
 
 <table class="table table-bordered">
@@ -59,4 +65,26 @@
         @endforeach
     </tbody>
 </table>
+@endsection
+@section('scripts')
+<script>
+    function actualizarBadgeNuevasReservas() {
+        fetch("{{ route('admin.reservas.nuevas') }}")
+            .then(response => response.json())
+            .then(data => {
+                const badge = document.getElementById('badge-nuevas-reservas');
+                if (data.nuevas > 0) {
+                    badge.textContent = data.nuevas + ' nueva' + (data.nuevas > 1 ? 's' : '') + ' reserva' + (data.nuevas > 1 ? 's' : '');
+                    badge.style.display = 'inline-block';
+                    
+                } else {
+                    badge.style.display = 'none';
+                }
+            });
+    }
+
+    // Actualizar inmediatamente y luego cada 10 segundos
+    actualizarBadgeNuevasReservas();
+    setInterval(actualizarBadgeNuevasReservas, 10000);
+</script>
 @endsection

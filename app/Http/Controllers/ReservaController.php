@@ -15,7 +15,8 @@ class ReservaController extends Controller
     //Mostrar todas las reservas
     public function index()
     {
-        $reservas = Reserva::all();
+        //La última la primera
+        $reservas = Reserva::latest()->get();
         return view('admin.reservas.index', compact('reservas'));
     }
 
@@ -159,5 +160,13 @@ class ReservaController extends Controller
         $reserva->save();
 
         return redirect()->back()->with('success', 'La reserva ha sido vista por el personal');
+    }
+
+    //Para mostrar el badge con el número de reservas nuevas
+    public function nuevas()
+    {
+        //Pasamos la respuesta de la consulta a json para trabajarlo con AJAX
+        $nuevas = Reserva::where('visto', true)->count();
+        return response()->json(['nuevas' => $nuevas]);
     }
 }
