@@ -1,0 +1,125 @@
+/* ESTILOS PARA WEB VINCULADOS DESDE EL LAYOUT WEB */
+/* Fondo del header */
+.header {
+    background: url('../images/cabecera-web-sal-y-salsa.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    color: white;
+}
+
+/* Filtro oscuro */
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Contenido centrado */
+.header-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Logo */
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 3;
+    width: 100px;
+}
+
+/* Botón hamburguesa */
+.menu-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+}
+
+/* Menú desenfocado */
+.menu-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.menu-overlay a {
+    color: white;
+    font-size: 2rem;
+    margin: 10px 0;
+    text-decoration: none;
+}
+
+.menu-overlay a:hover {
+    text-decoration: underline;
+}
+
+.show-menu {
+    display: flex !important;
+}
+
+/* Botón cerrar menú */
+.close-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    z-index: 11;
+}
+
+#quienes-somos{
+    background: url('../images/fondo-web.svg') no-repeat center center;
+}
+
+.reserva-section {
+    background: url('../images/sal-y-salsa-fondo-desenfoque.jpg') no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+}
+
+.reserva-section::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    /*background-color: rgba(178, 173, 173, 0.6);*/ /* Capa oscura */
+    z-index: 1;
+}
+
+.reserva-section .container {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(178, 173, 173, 0.6);
+}
+
+.form-reserva {
+    max-width: 700px;
+    
+    backdrop-filter: blur(4px);
+}

@@ -169,4 +169,46 @@ class ReservaController extends Controller
         $nuevas = Reserva::where('visto', true)->count();
         return response()->json(['nuevas' => $nuevas]);
     }
+
+    //Para hacer reservas desde la Web: sigue la misma lógica que el create 
+
+    public function reservaWeb(Request $request)
+{
+    // Verificamos si viene de un POST (formulario enviado)
+    if ($request->isMethod('post')) {
+        $validated = $request->validate([
+            'mesa_id' => 'required|exists:mesas,id',
+            'nombre' => 'required|string',
+            'telefono' => 'required|string',
+            'email' => 'required|email|max:255',
+            'comensales' => 'required|integer|min:1|max:100',
+            'fecha' => 'required|date|after_or_equal:today',
+            'hora' => 'required|date_format:H:i',
+        ]);
+
+        // Crear la reserva
+        Reserva::create([
+            'mesa_id' => $request->mesa_id,
+            'nombre' => $request->nombre,
+            'telefono' => $request->telefono,
+            'email' => $request->email,
+            'comensales' => $request->comensales,
+            'fecha' => $request->fecha,
+            'hora' => $request->hora,
+            'visto' => 1,
+        ]);
+
+        // Marcar mesa como ocupada
+        $mesa = Mesa::findOrFail($request->mesa_id);
+        $mesa->estado = 1;
+        $mesa->save();
+        //withFragment añade /#reservas a la url para que al redireccionar vaya directamente al contenedor id:reservas del home.blade
+        return redirect()->route('home')->with('success', '¡Reserva realizada con éxito!')->withFragment('reservas');
+    }
+
+    // Si es GET, solo mostrar la vista
+    $mesasDisponibles = Mesa::where('estado', 0)->get();
+    return view('web.home', compact('mesasDisponibles'));
+}
+
 }
