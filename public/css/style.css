@@ -1,4 +1,6 @@
 /* ESTILOS PARA WEB VINCULADOS DESDE EL LAYOUT WEB */
+
+/*ESTILOS PARA HEADER Y MENÚ NAV*/
 /* Fondo del header */
 .header {
     background: url('../images/cabecera-web-sal-y-salsa.jpg') no-repeat center center;
@@ -12,8 +14,10 @@
 .header::before {
     content: "";
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
@@ -53,8 +57,10 @@
 /* Menú desenfocado */
 .menu-overlay {
     position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     backdrop-filter: blur(8px);
     background: rgba(0, 0, 0, 0.6);
     z-index: 10;
@@ -92,10 +98,11 @@
     z-index: 11;
 }
 
-#quienes-somos{
-    background: url('../images/fondo-web.svg') no-repeat center center;
+#quienes-somos {
+    /*background: url('../images/fondo-web.svg') no-repeat center center;*/
 }
 
+/*ESTILOS PARA CONTENEDOR RESERVAS HOME*/
 .reserva-section {
     background: url('../images/sal-y-salsa-fondo-desenfoque.jpg') no-repeat center center;
     background-size: cover;
@@ -106,9 +113,12 @@
 .reserva-section::before {
     content: "";
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    /*background-color: rgba(178, 173, 173, 0.6);*/ /* Capa oscura */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background-color: rgba(178, 173, 173, 0.6);*/
+    /* Capa oscura */
     z-index: 1;
 }
 
@@ -120,12 +130,13 @@
 
 .form-reserva {
     max-width: 700px;
-    
+
     backdrop-filter: blur(4px);
 }
 
+/*ESTILOS PARA CONTENEDOR DESTACADOS HOME*/
 .seccion-cards {
-    background: url('../images/fondo-web.svg') no-repeat center center;
+    /*background: url('../images/fondo-web.svg') no-repeat center center;*/
     background-size: cover;
     padding: 100px 0;
     position: relative;
@@ -134,9 +145,12 @@
 .seccion-cards::before {
     content: "";
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    /*background: rgba(0, 0, 0, 0.5);*/ /* filtro oscuro sobre toda la sección */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background: rgba(0, 0, 0, 0.5);*/
+    /* filtro oscuro sobre toda la sección */
     z-index: 1;
 }
 
@@ -151,7 +165,8 @@
     border: none;
     border-radius: 15px;
     width: 100%;
-    min-height: 480px;/* Altura fija */
+    min-height: 480px;
+    /* Altura fija */
     position: relative;
     color: white;
     display: flex;
@@ -160,11 +175,13 @@
 
 .card-overlay .card-bg {
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center;
-    filter: brightness(0.5);
+    filter: brightness(0.8);
     z-index: 1;
 }
 
@@ -172,33 +189,114 @@
     z-index: 2;
     position: relative;
     padding: 20px;
-    /*background: rgba(0, 0, 0, 0.4);*/ /* Opcional: fondo semitransparente para el texto */
+    /*background: rgba(0, 0, 0, 0.4);*/
+    /* Opcional: fondo semitransparente para el texto */
     width: 100%;
 }
 
-.fondo-destacados1{
+.fondo-destacados1 {
     background: url('../images/sal-y-salsa-destacado-horarios.jpg') no-repeat center center;
 }
 
-.fondo-destacados2{
+.fondo-destacados2 {
     background: url('../images/sal-y-salsa-el-pulpo.jpg') no-repeat center center;
 }
 
-.fondo-destacados3{
+.fondo-destacados3 {
     background: url('../images/sal-y-salsa-destacado-filosofia.jpg') no-repeat center center;
 }
 
-.galeria-centrado{
+/*CENTRAR GALERIA EN EL CONTENEDOR EN HOME*/
+.galeria-centrado {
     max-width: 85% !important;
     margin: 0 auto !important;
 }
 
-.galeria-fondo{
-    background: url('../images/fondo-web.svg') no-repeat center center;
+.galeria-fondo {
+    /*background: url('../images/fondo-web.svg') no-repeat center center;*/
 }
 
+/*IMAGENES DE GALERÍA VERTICALES*/
 .imagen-vertical {
     height: 580px !important;
-    width: auto !important; /* mantiene la proporción original */
-    object-fit: cover !important; /* opcional: recorta si hay exceso */
-  }
+    width: auto !important;
+    /* mantiene la proporción original */
+    object-fit: cover !important;
+    /* opcional: recorta si hay exceso */
+}
+
+/* EFECTO FLOTANTE EJE Y ELEMENTOS*/
+.efecto-flotante {
+    transition: transform 0.3s ease-in-out;
+    /* transiciones suaves */
+}
+
+.efecto-flotante:hover {
+    transform: translateY(-20px);
+    /* mueve la imagen hacia arriba 10px */
+}
+
+/*ICONOS FOOTER*/
+
+.social-icon {
+    margin-right: 10px;
+    /* espacio entre iconos */
+    display: inline-block;
+}
+
+.social-icon img {
+    width: 40px;
+    /* Tamaño*/
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icon img:hover {
+    transform: scale(1.2);
+    /* Efecto de zoom al pasar el mouse */
+}
+
+.social-icon:focus,
+.social-icon:active {
+    outline: none;
+    box-shadow: none;
+}
+
+/*EFECTO PARALLAX CON FONDO EN HOME*/
+.fondo-fijo {
+    position: relative;
+    background-image: url('../images/fondo-web.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    /* fondo fijo */
+    z-index: 0;
+    /* para que quede detrás */
+    color: white;
+    /* texto claro encima */
+    /* opcional: para que tenga altura mínima */
+    min-height: 400px;
+    padding: 60px 0;
+    /* para que haya espacio dentro */
+}
+
+.fondo-fijo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    /* capa oscura semitransparente */
+    z-index: 1;
+}
+
+.fondo-fijo>* {
+    position: relative;
+    z-index: 2;
+}
+
+/*PADDING PARA NO USAR PY-5 EN LOS CONTENEDORES DE HOME*/
+.padding-contenedores {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+}

@@ -27,7 +27,7 @@
 </div>
 
 {{-- ====== QUIÉNES SOMOS ====== --}}
-<section id="quienes-somos" class="py-5 bg-light">
+<section id="quienes-somos" class="padding-contenedores bg-light fondo-fijo">
     <div class="container text-center">
         <h2 class="mb-5">¿Quiénes Somos?</h2>
         <p class="lead">Somos un restaurante familiar con pasión por la cocina mediterránea. Llevamos más de 15 años ofreciendo calidad, tradición y un servicio cálido a nuestros clientes.</p>
@@ -86,12 +86,12 @@
 </section>
 
 {{-- ====== DESTACADOS ====== --}}
-<section id="destacados" class="seccion-cards d-flex align-items-center">
+<section id="destacados" class=" padding-contenedores seccion-cards d-flex align-items-center fondo-fijo">
     <div class="container">
         <h2 class="text-center mb-5">Nuestros Destacados</h2>
         <div class="row g-4">
             <div class="col-md-4">
-                <div class="card card-overlay text-white">
+                <div class="card card-overlay text-white efecto-flotante">
                     <div class="card-bg fondo-destacados1"></div>
                     <div class="card-body position-relative">
                         <h5 class="card-title">Plato Estrella</h5>
@@ -100,7 +100,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card card-overlay text-white">
+                <div class="card card-overlay text-white efecto-flotante">
                     <div class="card-bg fondo-destacados2"></div>
                     <div class="card-body position-relative">
                         <h5 class="card-title">Ambiente Único</h5>
@@ -109,7 +109,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card card-overlay text-white">
+                <div class="card card-overlay text-white efecto-flotante">
                     <div class="card-bg fondo-destacados3"></div>
                     <div class="card-body position-relative">
                         <h5 class="card-title">Postres Caseros</h5>
@@ -123,7 +123,7 @@
 
 
 {{-- ====== UBICACIÓN ====== --}}
-<section id="ubicacion" class="py-5 bg-light">
+<section id="ubicacion" class="padding-contenedores bg-light">
     <div class="container text-center">
         <h2 class="mb-4">¿Dónde Estamos?</h2>
         <p class="lead">Nos encontramos en el corazón de la ciudad. ¡Ven a visitarnos!</p>
@@ -134,7 +134,7 @@
 </section>
 
 {{-- ====== GALERIA ====== --}}
-<section id="galeria" class=" py-5 galeria-fondo">
+<section id="galeria" class="padding-contenedores fondo-fijo">
 <!-- Gallery -->
 <div class="row galeria-centrado">
   <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
