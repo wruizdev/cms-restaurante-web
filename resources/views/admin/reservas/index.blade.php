@@ -15,56 +15,12 @@
 
 <a href="{{ route('reservas.create') }}" class="btn btn-primary mb-3">Crear Reserva</a>
 
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Mesa</th>
-            <th>Nombre</th>
-            <th>Teléfono</th>
-            <th>Email</th>
-            <th>Comensales</th>
-            <th>Fecha</th>
-            <th>Hora</th>
-            <th>Control Personal</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($reservas as $reserva)
-        <tr>
-            <td>{{ $reserva->id }}</td>
-            <td>{{ $reserva->mesa_id }}</td>
-            <td>{{ $reserva->nombre }}</td>
-            <td>{{ $reserva->telefono }}</td>
-            <td>{{ $reserva->email }}</td>
-            <td>{{ $reserva->comensales }}</td>
-            <td>{{ $reserva->fecha }}</td>
-            <td>{{ \Carbon\Carbon::parse($reserva->hora)->format('H:i') }}</td>
-            <td>
-                @if($reserva->visto)
-                <form action="{{ route('reservas.visto', $reserva->id) }}" method="POST" style="display:inline">
-                    @csrf
-                    @method('PATCH')
-                    <button type="submit" class="btn btn-warning">No Visto</button>
-                </form>
-                @else
-                <span class="text-success">Visto</span>
-                @endif
-            </td>
-            <td>
-                <a href="{{ route('reservas.edit', $reserva) }}" class="btn btn-sm btn-warning">Editar</a>
+<div id="contenedor-tabla">
+    @include('admin.reservas._tabla')
+</div>
 
-                <form action="{{ route('reservas.destroy', $reserva) }}" method="POST" style="display:inline-block;">
-                    @csrf
-                    @method('DELETE')
-                    <button onclick="return confirm('¿Seguro que quieres eliminar esta reserva?')" class="btn btn-sm btn-danger">Eliminar</button>
-                </form>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
+
+
 @endsection
 @section('scripts')
 <script>
@@ -76,15 +32,33 @@
                 if (data.nuevas > 0) {
                     badge.textContent = data.nuevas + ' nueva' + (data.nuevas > 1 ? 's' : '') + ' reserva' + (data.nuevas > 1 ? 's' : '');
                     badge.style.display = 'inline-block';
-                    
+
                 } else {
                     badge.style.display = 'none';
                 }
             });
     }
 
-    // Actualizar inmediatamente y luego cada 10 segundos
-    actualizarBadgeNuevasReservas();
-    setInterval(actualizarBadgeNuevasReservas, 10000);
+    function actualizarTablaReservas() {
+        fetch("{{ route('admin.reservas.tabla') }}")
+            .then(response => response.text())
+            .then(html => {
+                const contenedor = document.getElementById('contenedor-tabla');
+                if (contenedor) contenedor.innerHTML = html;
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        actualizarBadgeNuevasReservas();
+        actualizarTablaReservas();
+        //Añado setInterval para actualizar el badge y la tabla cada 10 segundos
+        setInterval(() => {
+            actualizarBadgeNuevasReservas();
+            actualizarTablaReservas();
+        }, 10000);
+    });
+
+
+   
 </script>
 @endsection

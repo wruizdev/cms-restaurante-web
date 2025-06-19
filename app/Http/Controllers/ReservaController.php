@@ -211,4 +211,11 @@ class ReservaController extends Controller
     return view('web.home', compact('mesasDisponibles'));
 }
 
+public function tabla()
+{
+    $reservas = Reserva::latest()->get();
+    return view('admin.reservas._tabla', compact('reservas'));
+}
+
+
 }
