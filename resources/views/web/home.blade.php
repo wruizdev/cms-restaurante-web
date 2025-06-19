@@ -29,7 +29,7 @@
 {{-- ====== QUIÉNES SOMOS ====== --}}
 <section id="quienes-somos" class="py-5 bg-light">
     <div class="container text-center">
-        <h2 class="mb-4">¿Quiénes Somos?</h2>
+        <h2 class="mb-5">¿Quiénes Somos?</h2>
         <p class="lead">Somos un restaurante familiar con pasión por la cocina mediterránea. Llevamos más de 15 años ofreciendo calidad, tradición y un servicio cálido a nuestros clientes.</p>
     </div>
 </section>
@@ -85,6 +85,42 @@
     </div>
 </section>
 
+{{-- ====== DESTACADOS ====== --}}
+<section id="destacados" class="seccion-cards d-flex align-items-center">
+    <div class="container">
+        <h2 class="text-center mb-5">Nuestros Destacados</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card card-overlay text-white">
+                    <div class="card-bg fondo-destacados1"></div>
+                    <div class="card-body position-relative">
+                        <h5 class="card-title">Plato Estrella</h5>
+                        <p class="card-text">Una descripción breve del plato más popular.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-overlay text-white">
+                    <div class="card-bg fondo-destacados2"></div>
+                    <div class="card-body position-relative">
+                        <h5 class="card-title">Ambiente Único</h5>
+                        <p class="card-text">Disfruta de una experiencia gastronómica inolvidable.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-overlay text-white">
+                    <div class="card-bg fondo-destacados3"></div>
+                    <div class="card-body position-relative">
+                        <h5 class="card-title">Postres Caseros</h5>
+                        <p class="card-text">Endulza tu visita con nuestras especialidades.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 {{-- ====== UBICACIÓN ====== --}}
 <section id="ubicacion" class="py-5 bg-light">
@@ -95,6 +131,54 @@
             <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></iframe>
         </div>
     </div>
+</section>
+
+{{-- ====== GALERIA ====== --}}
+<section id="galeria" class=" py-5 galeria-fondo">
+<!-- Gallery -->
+<div class="row galeria-centrado">
+  <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+    <img
+      src="{{ asset('images/sal-y-salsa-entrecot.jpg') }}"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Entrecot"
+    />
+
+    <img
+      src="{{ asset('images/sal-y-salsa-ensalada.jpg') }}"
+      class="w-100 shadow-1-strong rounded mb-4 imagen-vertical"
+      alt="Ensalada"
+    />
+  </div>
+
+  <div class="col-lg-4 mb-4 mb-lg-0">
+    <img
+      src="{{ asset('images/sal-y-salsa-el-pulpo.jpg') }}"
+      class="w-100 shadow-1-strong rounded mb-4 imagen-vertical"
+      alt="El Pulpo"
+    />
+
+    <img
+      src="{{ asset('images/sal-y-salsa-con-mazorcas.jpg') }}"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Mazorcas"
+    />
+  </div>
+
+  <div class="col-lg-4 mb-4 mb-lg-0">
+    <img
+      src="{{ asset('images/sal-y-salsa-lubina.jpg') }}"
+      class="w-100 shadow-1-strong rounded mb-4"
+      alt="Lubina"
+    />
+
+    <img
+      src="{{ asset('images/sal-y-salsa-langostinos.jpg') }}"
+      class="w-100 shadow-1-strong rounded mb-4 imagen-vertical"
+      alt="Langostinos"
+    />
+  </div>
+</div>
 </section>
 @endsection
 @section('scripts')

@@ -123,3 +123,82 @@
     
     backdrop-filter: blur(4px);
 }
+
+.seccion-cards {
+    background: url('../images/fondo-web.svg') no-repeat center center;
+    background-size: cover;
+    padding: 100px 0;
+    position: relative;
+}
+
+.seccion-cards::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    /*background: rgba(0, 0, 0, 0.5);*/ /* filtro oscuro sobre toda la sección */
+    z-index: 1;
+}
+
+.seccion-cards .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Cards con imagen de fondo y overlay oscuro */
+.card-overlay {
+    overflow: hidden;
+    border: none;
+    border-radius: 15px;
+    width: 100%;
+    min-height: 480px;/* Altura fija */
+    position: relative;
+    color: white;
+    display: flex;
+    align-items: flex-end;
+}
+
+.card-overlay .card-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.5);
+    z-index: 1;
+}
+
+.card-overlay .card-body {
+    z-index: 2;
+    position: relative;
+    padding: 20px;
+    /*background: rgba(0, 0, 0, 0.4);*/ /* Opcional: fondo semitransparente para el texto */
+    width: 100%;
+}
+
+.fondo-destacados1{
+    background: url('../images/sal-y-salsa-destacado-horarios.jpg') no-repeat center center;
+}
+
+.fondo-destacados2{
+    background: url('../images/sal-y-salsa-el-pulpo.jpg') no-repeat center center;
+}
+
+.fondo-destacados3{
+    background: url('../images/sal-y-salsa-destacado-filosofia.jpg') no-repeat center center;
+}
+
+.galeria-centrado{
+    max-width: 85% !important;
+    margin: 0 auto !important;
+}
+
+.galeria-fondo{
+    background: url('../images/fondo-web.svg') no-repeat center center;
+}
+
+.imagen-vertical {
+    height: 580px !important;
+    width: auto !important; /* mantiene la proporción original */
+    object-fit: cover !important; /* opcional: recorta si hay exceso */
+  }
