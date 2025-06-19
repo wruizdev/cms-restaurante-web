@@ -32,6 +32,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     //Para badge que anuncia nuevas reservas en el panel admin reservas.index
     Route::get('/admin/reservas/nuevas', [ReservaController::class, 'nuevas'])->name('admin.reservas.nuevas');
     Route::get('/admin/estadisticas', [EstadisticasController::class, 'index'])->name('admin.estadisticas');
+    Route::get('/admin/reservas/tabla', [ReservaController::class, 'tabla'])->name('admin.reservas.tabla');
+
 });
 
 require __DIR__.'/auth.php';  // Rutas Breeze de login, logout, register, etc.
