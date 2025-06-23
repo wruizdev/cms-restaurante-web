@@ -13,7 +13,8 @@
 
 <body>
 
-
+{{-- Para que el header solo se añada en las páginas que se necesiten --}}
+    @yield('header')
 
     <main>
         @yield('content')

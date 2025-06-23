@@ -34,6 +34,19 @@
     text-align: center;
 }
 
+/*Clases para añadir el header con imágenes diferentes*/
+.default-header {
+    background-image: url('../images/default-header.jpg');
+}
+
+.header-fondo-home {
+    background-image: url('../images/cabecera-web-sal-y-salsa.jpg');
+}
+
+.header-fondo-carta {
+    background-image: url('../images/fondo-header-carta.jpg');
+}
+
 /* Logo */
 .logo {
     position: absolute;

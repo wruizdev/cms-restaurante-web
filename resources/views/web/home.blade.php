@@ -3,28 +3,21 @@
 @section('title', 'Inicio')
 @section('background', asset('images/fondo-header.jpg'))
 
+
+@php
+    /*Pasamos de forma dinámica variables con la clase que vamos a utilizar (se debe crear en el css) para el fondo y el title al web.header*/
+    $backgroundClass = 'header-fondo-home';
+    $headerTitle = 'Bienvenidos a Nuestro Restaurante';
+@endphp
+
+@section('header')
+    @include('web.header', [
+        'backgroundClass' => $backgroundClass,
+        'headerTitle' => $headerTitle
+    ])
+@endsection
+
 @section('content')
-<header class="header">
-    <img src="{{ asset('images/Logo-Sal-y-Salsa-light.svg') }}" alt="Logo" class="logo">
-
-    <button class="menu-toggle btn btn-outline-light" onclick="toggleMenu()">☰</button>
-
-    <div class="header-content container">
-        <h1 class="display-4">Bienvenidos a Nuestro Restaurante</h1>
-        <div class="mt-4">
-            <a href="{{ url('/#reservas') }}" class="btn btn-primary me-3">Reservas</a>
-            <a href="{{ route('carta') }}" class="btn btn-outline-light">Ver Carta</a>
-        </div>
-    </div>
-</header>
-
-<div id="menu" class="menu-overlay">
-    <button class="close-menu" onclick="toggleMenu()">✖</button>
-    <a href="{{ route('home') }}" onclick="toggleMenu()">Inicio</a>
-    <a href="{{ route('reservas') }}" onclick="toggleMenu()">Reservas</a>
-    <a href="{{ route('carta') }}" onclick="toggleMenu()">Carta</a>
-    <a href="{{ route('contacto') }}" onclick="toggleMenu()">Contacto</a>
-</div>
 
 {{-- ====== QUIÉNES SOMOS ====== --}}
 <section id="quienes-somos" class="padding-contenedores bg-light fondo-fijo">
