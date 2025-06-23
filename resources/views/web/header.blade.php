@@ -1,13 +1,16 @@
 <header class="header {{ $backgroundClass ?? 'default-header' }}">
+<a href="{{ route('home') }}">
     <img src="{{ asset('images/Logo-Sal-y-Salsa-light.svg') }}" alt="Logo" class="logo">
+</a>
+
 
     <button class="menu-toggle btn btn-outline-light" onclick="toggleMenu()">☰</button>
 
     <div class="header-content container">
         <h1 class="display-4">{{ $headerTitle ?? 'Bienvenidos a Nuestro Restaurante' }}</h1>
         <div class="mt-4">
-            <a href="{{ url('/#reservas') }}" class="btn btn-primary me-3 {{ $botonReservas }}">Reservas</a>
-            <a href="{{ route('carta') }}" class="btn btn-outline-light {{ $botonCarta }}">Ver Carta</a>
+            <a href="{{ url('/#reservas') }}" class="btn btn-primary me-3 {{ $botonReservas ?? '' }}">Reservas</a>
+            <a href="{{ route('carta') }}" class="btn btn-outline-light {{ $botonCarta ?? '' }}">Ver Carta</a>
         </div>
     </div>
 </header>

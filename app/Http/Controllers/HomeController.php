@@ -17,6 +17,8 @@ class HomeController extends Controller
 
     public function carta()
     {
-        return view('web.carta');
+        $entrantes = Plato::where('categoria', 'Entrante')->get();
+        $principales = Plato::where('categoria', 'Principal')->get();
+        return view('web.carta', compact('entrantes','principales'));
     }
 }
