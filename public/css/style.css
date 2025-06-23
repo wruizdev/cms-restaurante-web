@@ -34,6 +34,28 @@
     text-align: center;
 }
 
+/*Clases para añadir el header con imágenes diferentes*/
+.default-header {
+    background-image: url('../images/default-header.jpg');
+}
+
+.header-fondo-home {
+    background-image: url('../images/cabecera-web-sal-y-salsa.jpg');
+}
+
+.header-fondo-carta {
+    background-image: url('../images/cabecera-menu-sal-y-salsa.jpg');
+}
+
+/*Clases para ocultar dinamicamente los 2 botones del header cuando sea necesario*/
+.btn-reservas-oculto{
+    display:none !important;
+}
+
+.btn-carta-oculto{
+    display: none !important;
+}
+
 /* Logo */
 .logo {
     position: absolute;
@@ -299,4 +321,61 @@
 .padding-contenedores {
     padding-top: 5rem !important;
     padding-bottom: 5rem !important;
+}
+
+/*CARDS PLATOS DENTRO DE CARTA*/
+
+/*Pasamos de forma dinámica como variable la foto de cada plato para que se coloque de fondo. En la BBDD se guarda la ruta y la imagen en storage*/
+.card-carta {
+    background-image: var(--bg-url);
+}
+
+/* Contenedor principal de la card */
+.card-carta {
+    position: relative; /* Permite posicionar elementos hijos de forma absoluta si se requiere */
+    height: 300px; /* Altura fija de la card */
+    background-size: cover; /* La imagen de fondo cubre toda el área */
+    background-position: center; /* Centra la imagen de fondo */
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Oculta cualquier contenido que se desborde del contenedor */
+    display: flex; /* Utiliza flexbox para alinear el contenido */
+    align-items: flex-end; /* Coloca el contenido al final de la card (parte inferior) */
+    color: white; /* Color del texto */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidad */
+    transition: transform 0.3s ease; /* Suaviza la animación al hacer hover */
+}
+
+/* Efecto al pasar el ratón por encima */
+.card-carta:hover {
+    transform: scale(1.03); /* Escala ligeramente la card para dar efecto de aumento */
+}
+
+/* Capa oscura sobre la imagen para mejorar legibilidad del texto */
+.card-carta-overlay {
+    background: rgba(0, 0, 0, 0.6); /* Fondo oscuro semi-transparente */
+    width: 100%; /* Ocupa todo el ancho de la card */
+    padding: 15px; /* Espaciado interno */
+    border-top-left-radius: 10px; /* Bordes redondeados arriba a la izquierda */
+    border-top-right-radius: 10px; /* Bordes redondeados arriba a la derecha */
+}
+
+/* Título del plato */
+.card-carta .card-title {
+    font-size: 1.25rem; /* Tamaño de fuente grande */
+    font-weight: bold; /* Texto en negrita */
+}
+
+/* Precio del plato */
+.card-carta .precio {
+    display: inline-block; /* Permite aplicar márgenes y paddings como si fuera un bloque */
+    margin-top: 5px; /* Separación con el elemento superior */
+    font-weight: bold; /* Texto en negrita */
+    font-size: 1rem; /* Tamaño de fuente base */
+    background: rgba(255, 255, 255, 0.1); /* Fondo blanco semi-transparente */
+    padding: 5px 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.fondo-platos-alternativo{
+    background-color: #9e856b !important;
 }
