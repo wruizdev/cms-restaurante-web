@@ -44,7 +44,16 @@
 }
 
 .header-fondo-carta {
-    background-image: url('../images/fondo-header-carta.jpg');
+    background-image: url('../images/cabecera-menu-sal-y-salsa.jpg');
+}
+
+/*Clases para ocultar dinamicamente los 2 botones del header cuando sea necesario*/
+.btn-reservas-oculto{
+    display:none !important;
+}
+
+.btn-carta-oculto{
+    display: none !important;
 }
 
 /* Logo */

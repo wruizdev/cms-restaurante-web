@@ -1,7 +1,7 @@
 @extends('layouts.web')
 
 @section('title', 'Inicio')
-@section('background', asset('images/fondo-header.jpg'))
+
 
 
 @php
