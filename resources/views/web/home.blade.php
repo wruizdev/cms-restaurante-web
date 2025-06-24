@@ -70,7 +70,7 @@
                         </select>
                     </div>
                     <div class="col-12 text-center mt-3">
-                        <button type="submit" class="btn btn-primary">Reservar</button>
+                        <button type="submit" class="btn btn-primary btn-reservas">Reservar</button>
                     </div>
                 </div>
             </form>
@@ -133,13 +133,13 @@
   <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
     <img
       src="{{ asset('images/sal-y-salsa-entrecot.jpg') }}"
-      class="w-100 shadow-1-strong rounded mb-4"
+      class="w-100 shadow-1-strong rounded mb-4 galeria-efecto"
       alt="Entrecot"
     />
 
     <img
       src="{{ asset('images/sal-y-salsa-ensalada.jpg') }}"
-      class="w-100 shadow-1-strong rounded mb-4 imagen-vertical"
+      class="w-100 shadow-1-strong rounded mb-4 imagen-vertical galeria-efecto"
       alt="Ensalada"
     />
   </div>
@@ -147,13 +147,13 @@
   <div class="col-lg-4 mb-4 mb-lg-0">
     <img
       src="{{ asset('images/sal-y-salsa-el-pulpo.jpg') }}"
-      class="w-100 shadow-1-strong rounded mb-4 imagen-vertical"
+      class="w-100 shadow-1-strong rounded mb-4 imagen-vertical galeria-efecto"
       alt="El Pulpo"
     />
 
     <img
       src="{{ asset('images/sal-y-salsa-con-mazorcas.jpg') }}"
-      class="w-100 shadow-1-strong rounded mb-4"
+      class="w-100 shadow-1-strong rounded mb-4 galeria-efecto"
       alt="Mazorcas"
     />
   </div>
@@ -161,13 +161,13 @@
   <div class="col-lg-4 mb-4 mb-lg-0">
     <img
       src="{{ asset('images/sal-y-salsa-lubina.jpg') }}"
-      class="w-100 shadow-1-strong rounded mb-4"
+      class="w-100 shadow-1-strong rounded mb-4 galeria-efecto"
       alt="Lubina"
     />
 
     <img
       src="{{ asset('images/sal-y-salsa-langostinos.jpg') }}"
-      class="w-100 shadow-1-strong rounded mb-4 imagen-vertical"
+      class="w-100 shadow-1-strong rounded mb-4 imagen-vertical galeria-efecto"
       alt="Langostinos"
     />
   </div>
