@@ -9,8 +9,8 @@
     <div class="header-content container">
         <h1 class="display-4">{{ $headerTitle ?? 'Bienvenidos a Nuestro Restaurante' }}</h1>
         <div class="mt-4">
-            <a href="{{ url('/#reservas') }}" class="btn btn-primary me-3 {{ $botonReservas ?? '' }}">Reservas</a>
-            <a href="{{ route('carta') }}" class="btn btn-outline-light {{ $botonCarta ?? '' }}">Ver Carta</a>
+            <a href="{{ url('/#reservas') }}" class="btn btn-outline-light btn-general me-3 {{ $botonReservas ?? '' }}">Reservas</a>
+            <a href="{{ route('carta') }}" class="btn btn-outline-light btn-general {{ $botonCarta ?? '' }}">Ver Carta</a>
         </div>
     </div>
 </header>

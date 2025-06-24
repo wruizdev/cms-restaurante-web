@@ -247,6 +247,14 @@
     /* opcional: recorta si hay exceso */
 }
 
+.galeria-efecto {
+    transition: transform 0.3s ease-in-out;
+}
+
+.galeria-efecto:hover {
+    transform: scale(1.03);
+}
+
 /* EFECTO FLOTANTE EJE Y ELEMENTOS*/
 .efecto-flotante {
     transition: transform 0.3s ease-in-out;
@@ -378,4 +386,33 @@
 
 .fondo-platos-alternativo{
     background-color: #9e856b !important;
+}
+
+/*BOTONES*/
+
+.btn-general {
+    border: 2px solid white !important;
+    border-radius: 25px !important;
+    background: none !important;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-general:hover {
+    background: white !important;
+    border-color: white !important; /* mismo grosor, solo cambia color */
+}
+
+
+.btn-reservas{
+    border-radius: 25px !important;
+    background: white !important;
+    border: solid white 2px !important;
+    color: black !important;
+}
+
+.btn-reservas:hover{
+    border-radius: 25px !important;
+    background: none !important;
+    border: solid white 2px !important;
+    color: white !important;
 }
