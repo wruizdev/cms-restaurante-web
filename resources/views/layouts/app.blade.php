@@ -34,6 +34,9 @@
                             <a class="nav-link" href="{{ route('reservas.index') }}">Reservas</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('posts.index') }}">Posts</a>
+                        </li>
+                        <li class="nav-item">
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <button class="btn btn-link nav-link">Cerrar sesión</button>
