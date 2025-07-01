@@ -7,6 +7,7 @@ use App\Http\Controllers\PlatoController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\EstadisticasController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -23,16 +24,18 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Rutas de admin protegidas (usuarios, mesas, platos, reservas)
+// Rutas de admin protegidas (usuarios, mesas, platos, reservas, posts)
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('usuarios', UsuarioController::class);
     Route::resource('mesas', MesaController::class);
     Route::resource('platos', PlatoController::class);
     Route::resource('reservas', ReservaController::class);
+    Route::resource('posts', PostController::class);
     //Para badge que anuncia nuevas reservas en el panel admin reservas.index
     Route::get('/admin/reservas/nuevas', [ReservaController::class, 'nuevas'])->name('admin.reservas.nuevas');
     Route::get('/admin/estadisticas', [EstadisticasController::class, 'index'])->name('admin.estadisticas');
     Route::get('/admin/reservas/tabla', [ReservaController::class, 'tabla'])->name('admin.reservas.tabla');
+
 
 });
 
@@ -57,6 +60,9 @@ Route::get('/carta', [HomeController::class, 'carta'])->name('carta');
 Route::get('/contacto', [HomeController::class, 'contacto'])->name('contacto');
 //Esto permite que el home funcione tanto para mostrar como para procesar el formulario desde la función reservaWeb.
 Route::match(['get', 'post'], '/', [ReservaController::class, 'reservaWeb'])->name('home');
+//Rutas para posts públicas
+Route::get('/blog', [PostController::class, 'indexPublic'])->name('posts.indexPublic');
+Route::get('/blog/{post}', [PostController::class, 'showPublic'])->name('posts.showPublic');
 
 
 
