@@ -36,3 +36,11 @@
 </div>
 </section>
 @endsection
+@section('scripts')
+<script>
+    //Para mostrar menú hamburguesa
+    function toggleMenu() {
+        document.getElementById("menu").classList.toggle("show-menu");
+    }
+</script>
+@endsection
