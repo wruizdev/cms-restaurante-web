@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -11,7 +13,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::latest()->paginate(10);
+        return view('admin.posts.index', compact('posts'));
     }
 
     /**
@@ -19,7 +22,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.posts.create');
     }
 
     /**
@@ -27,7 +30,19 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'titulo' => 'required|string|max:255',
+            'resumen' => 'required|string|max:500',
+            'cuerpo' => 'required|string',
+            'foto_post' => 'nullable|image|max:2048',
+        ]);
+    
+        if ($request->hasFile('foto_post')) {
+            $data['foto_post'] = $request->file('foto_post')->store('posts', 'public');
+        }
+    
+        Post::create($data);
+        return redirect()->route('posts.index')->with('success', 'Post creado correctamente');
     }
 
     /**
@@ -41,24 +56,59 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Post $post)
     {
-        //
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $data = $request->validate([
+            'titulo' => 'required|string|max:255',
+            'resumen' => 'required|string|max:500',
+            'cuerpo' => 'required|string',
+            'foto_post' => 'nullable|image|max:2048',
+        ]);
+    
+        if ($request->hasFile('foto_post')) {
+            if ($post->foto_post) {
+                Storage::disk('public')->delete($post->foto_post);
+            }
+            $data['foto_post'] = $request->file('foto_post')->store('posts', 'public');
+        }
+    
+        $post->update($data);
+        return redirect()->route('posts.index')->with('success', 'Post actualizado correctamente');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Post $post)
     {
-        //
+        if($post->foto_post){
+            Storage::disk('public')->delete($post->foto_post);
+        }
+
+        $post->delete();
+        return redirect()->route('post.index')->with('success', 'Post eliminado correctamente');
     }
+
+    /**
+     * Parte pública
+     */
+
+     public function indexPublic()
+     {
+        $post = Post::latest()->paginate(6);
+        return view('blog.index', compact('posts'));
+     }
+
+     public function showPublic(Post $post)
+     {
+        return view('blog.show', compact('posts'));
+     }
 }
