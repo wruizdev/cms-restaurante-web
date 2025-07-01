@@ -1,5 +1,15 @@
 /* ESTILOS PARA WEB VINCULADOS DESDE EL LAYOUT WEB */
 
+/*FUENTE PARA TODO EL DOM*/
+body {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif !important;
+}
+
+
 /*ESTILOS PARA HEADER Y MENÚ NAV*/
 /* Fondo del header */
 .header {
