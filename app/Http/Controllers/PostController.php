@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Mews\Purifier\Facades\Purifier;
 
 class PostController extends Controller
 {
@@ -36,12 +37,16 @@ class PostController extends Controller
             'cuerpo' => 'required|string',
             'foto_post' => 'nullable|image|max:2048',
         ]);
-    
+
+        // Limpiar el HTML del cuerpo
+        $data['cuerpo'] = Purifier::clean($data['cuerpo']);
+
         if ($request->hasFile('foto_post')) {
             $data['foto_post'] = $request->file('foto_post')->store('posts', 'public');
         }
-    
+
         Post::create($data);
+
         return redirect()->route('posts.index')->with('success', 'Post creado correctamente');
     }
 
@@ -72,15 +77,19 @@ class PostController extends Controller
             'cuerpo' => 'required|string',
             'foto_post' => 'nullable|image|max:2048',
         ]);
-    
+
+        // Limpiar el HTML del cuerpo
+        $data['cuerpo'] = Purifier::clean($data['cuerpo']);
+
         if ($request->hasFile('foto_post')) {
             if ($post->foto_post) {
                 Storage::disk('public')->delete($post->foto_post);
             }
             $data['foto_post'] = $request->file('foto_post')->store('posts', 'public');
         }
-    
+
         $post->update($data);
+
         return redirect()->route('posts.index')->with('success', 'Post actualizado correctamente');
     }
 
@@ -103,12 +112,12 @@ class PostController extends Controller
 
      public function indexPublic()
      {
-        $post = Post::latest()->paginate(6);
-        return view('blog.index', compact('posts'));
+        $posts = Post::latest()->paginate(6);
+        return view('web.blog.index', compact('posts'));
      }
 
      public function showPublic(Post $post)
      {
-        return view('blog.show', compact('posts'));
+        return view('web.blog.show', compact('post'));
      }
 }
