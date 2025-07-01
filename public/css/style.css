@@ -426,3 +426,88 @@ h1, h2, h3, h4, h5, h6 {
     border: solid white 2px !important;
     color: white !important;
 }
+
+/*ESTILOS WEB BLOG*/
+.img-post-medium {
+    max-width: 100%;
+    height: auto;
+    width: 800px; /* Tamaño fijo mediano */
+    display: block;
+    margin: 20px auto; /* Centrar y separar */
+    border-radius: 8px; /* Opcional: bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Opcional: sombra suave */
+    object-fit: cover;
+}
+
+.post-container {
+    max-width: 80%;
+    margin: 40px auto;
+    padding: 20px 20px;
+    font-family: 'Georgia', serif;
+    color: #333;
+    line-height: 1.7;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.post-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 15px;
+    border-bottom: 3px solid #9e856b;
+    padding-bottom: 10px;
+}
+
+.post-summary {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.post-body p {
+    margin-bottom: 1.25rem;
+    font-size: 1.15rem;
+}
+
+.post-body h2, .post-body h3 {
+    color: #007BFF;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.post-body ul, .post-body ol {
+    margin-left: 20px;
+    margin-bottom: 1.5rem;
+}
+
+.post-body blockquote {
+    border-left: 5px solid #007BFF;
+    margin: 1.5rem 0;
+    padding-left: 15px;
+    font-style: italic;
+    color: #555;
+    background-color: #f9faff;
+    border-radius: 4px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 10px 18px;
+    background-color: #9e856b;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    border-radius: 25px !important;
+    border: solid white 2px !important;
+}
+
+.back-link:hover {
+    background-color: white;
+    border: solid #9e856b 2px !important;
+    color: #9e856b;
+}
