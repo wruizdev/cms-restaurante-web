@@ -23,7 +23,9 @@
 <section id="quienes-somos" class="padding-contenedores bg-light fondo-fijo">
     <div class="container text-center">
         <h2 class="mb-5">¿Quiénes Somos?</h2>
-        <p class="lead">Somos un restaurante familiar con pasión por la cocina mediterránea. Llevamos más de 15 años ofreciendo calidad, tradición y un servicio cálido a nuestros clientes.</p>
+        <p class="lead">¿Y si pudieras disfrutar siempre del rastro de la sal en los labios, de la alegría de las noches eternas, del dulzor de la fruta fresca o de la calidez de un atardecer caribeño?</p>
+        <p class="lead">Te sorprenderás con todo lo que tenemos preparado para ti.</p>
+        <h3>¡Bienvenidos a Sal & Salsa!</h3>
     </div>
 </section>
 
