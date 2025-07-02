@@ -57,6 +57,10 @@ h1, h2, h3, h4, h5, h6 {
     background-image: url('../images/cabecera-menu-sal-y-salsa.jpg');
 }
 
+.header-fondo-espacio {
+    background-image: url('../images/sal-y-salsa-header-espacio.jpg');
+}
+
 /*Clases para ocultar dinamicamente los 2 botones del header cuando sea necesario*/
 .btn-reservas-oculto{
     display:none !important;
@@ -255,6 +259,13 @@ h1, h2, h3, h4, h5, h6 {
     /* mantiene la proporción original */
     object-fit: cover !important;
     /* opcional: recorta si hay exceso */
+}
+
+/*IMAGENES DE GALERÍA MÁS PEQUEÑAS ESPACIO*/
+.imagen-espacio{
+    height: 200px !important;
+    width: auto !important;
+    object-fit: cover !important;
 }
 
 .galeria-efecto {

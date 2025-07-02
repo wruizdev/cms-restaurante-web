@@ -25,7 +25,7 @@
             <!-- Enlaces -->
             <div class="col-md-3 text-md-end">
                 <ul class="list-unstyled">
-                    <li><a href="sabor" class="text-white text-decoration-none">Nuestra carta</a></li>
+                    <li><a href="carta" class="text-white text-decoration-none">Nuestra carta</a></li>
                     <li><a href="filosofia" class="text-white text-decoration-none">Nuestra filosofía</a></li>
                     <li><a href="espacio" class="text-white text-decoration-none">El restaurante</a></li>
                     <li><a href="politica-de-privacidad" class="text-white text-decoration-none">Política de privacidad</a></li>
