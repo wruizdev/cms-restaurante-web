@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <title>Panel Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 
@@ -18,28 +19,42 @@
                     <ul class="nav flex-column">
                         @if(Auth::user()->rol == 0)
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('usuarios.index') }}">Usuarios</a>
+                            <a class="nav-link" href="{{ route('usuarios.index') }}">
+                            <i class="bi bi-people me-2"></i> Usuarios
+                            </a>
                         </li>
                         @endif
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.estadisticas') }}">Estadísticas</a>
+                            <a class="nav-link" href="{{ route('admin.estadisticas') }}">
+                            <i class="bi bi-bar-chart-line me-2"></i> Estadísticas
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('mesas.index') }}">Mesas</a>
+                            <a class="nav-link" href="{{ route('mesas.index') }}">
+                            <i class="bi bi-table me-2"></i> Mesas
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('platos.index') }}">Carta</a>
+                            <a class="nav-link" href="{{ route('platos.index') }}">
+                            <i class="bi bi-book me-2"></i> Carta
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('reservas.index') }}">Reservas</a>
+                            <a class="nav-link" href="{{ route('reservas.index') }}">
+                            <i class="bi bi-calendar-check me-2"></i> Reservas
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('posts.index') }}">Posts</a>
+                            <a class="nav-link" href="{{ route('posts.index') }}">
+                            <i class="bi bi-file-text me-2"></i> Posts
+                            </a>
                         </li>
                         <li class="nav-item">
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <button class="btn btn-link nav-link">Cerrar sesión</button>
+                                <button class="btn btn-link nav-link">
+                                <i class="bi bi-box-arrow-right me-2"></i> Cerrar sesión
+                                </button>
                             </form>
                         </li>
                     </ul>
