@@ -261,18 +261,11 @@ h1, h2, h3, h4, h5, h6 {
     /* opcional: recorta si hay exceso */
 }
 
+/*IMAGENES DE GALERÍA MÁS PEQUEÑAS ESPACIO*/
 .imagen-espacio{
     height: 200px !important;
     width: auto !important;
     object-fit: cover !important;
-}
-
-.imagen-vertical {
-    height: 580px !important;
-    width: auto !important;
-    /* mantiene la proporción original */
-    object-fit: cover !important;
-    /* opcional: recorta si hay exceso */
 }
 
 .galeria-efecto {
