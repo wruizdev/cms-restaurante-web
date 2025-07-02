@@ -17,7 +17,8 @@
 <div id="menu" class="menu-overlay">
     <button class="close-menu" onclick="toggleMenu()">✖</button>
     <a href="{{ route('home') }}" onclick="toggleMenu()">Inicio</a>
-    <a href="{{ route('reservas') }}" onclick="toggleMenu()">Reservas</a>
+    <a href="{{ url('/#reservas') }}" onclick="toggleMenu()">Reservas</a>
     <a href="{{ route('carta') }}" onclick="toggleMenu()">Carta</a>
+    <a href="{{ route('posts.indexPublic') }}" onclick="toggleMenu()">Blog</a>
     <a href="{{ route('contacto') }}" onclick="toggleMenu()">Contacto</a>
 </div>
