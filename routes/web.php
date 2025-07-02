@@ -58,6 +58,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/reservas', [HomeController::class, 'reservas'])->name('reservas');
 Route::get('/carta', [HomeController::class, 'carta'])->name('carta');
 Route::get('/contacto', [HomeController::class, 'contacto'])->name('contacto');
+Route::get('/espacio', [HomeController::class, 'espacio'])->name('espacio');
 //Esto permite que el home funcione tanto para mostrar como para procesar el formulario desde la función reservaWeb.
 Route::match(['get', 'post'], '/', [ReservaController::class, 'reservaWeb'])->name('home');
 //Rutas para posts públicas
