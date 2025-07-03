@@ -7,6 +7,8 @@
     <title>Panel Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 
@@ -17,7 +19,7 @@
             <nav class="col-md-2 d-none d-md-block bg-light sidebar py-4">
                 <div class="position-sticky text-center mb-4">
                     <a href="{{ route('dashboard') }}">
-                        <img src="{{ asset('images/logo-sal-y-salsa.svg') }}" alt="Logo Empresa" class="img-fluid" style="max-height: 60px;">
+                        <img src="{{ asset('images/Logo-Sal-y-Salsa-light.svg') }}" alt="Logo Empresa" class="img-fluid" style="max-height: 60px;">
                     </a>
                 </div>
                 <div class="position-sticky">
@@ -67,7 +69,7 @@
             </nav>
 
             <!-- Main content -->
-            <main class="col-md-10 ms-sm-auto px-md-4 py-4">
+            <main class=" main-content">
                 @yield('content')
             </main>
         </div>
