@@ -1,30 +1,150 @@
 /* Sidebar fijo y alto completo */
-.sidebar {
-    position: fixed;       /* Fijo en pantalla */
-    top: 0;                /* Arriba */
-    left: 0;               /* Lado izquierdo */
-    height: 100vh;         /* 100% altura viewport */
-    width: 220px;          /* Ancho fijo, ajusta a tu gusto */
-    background-color: #f8f9fa !important;
-    padding-top: 20px;
-    border-right: 1px solid #ddd;
-    overflow-y: auto;      /* Scroll vertical si se pasa */
-    z-index: 1000;         /* Que esté encima */
+
+:root {
+    --color-principal: #1e293b;
+    /* Azul oscuro grisáceo */
+    --color-secundario: #64748b;
+    /* Gris azulado */
+    --color-acento: #f97316;
+    /* Naranja suave */
+    --color-fondo: #f8fafc;
+    /* Gris muy claro */
+    --color-texto: #1f2937;
+    /* Gris muy oscuro */
 }
 
-/* Contenido principal a la derecha del sidebar */
+body {
+    background-color: var(--color-fondo) !important;
+    color: var(--color-texto) !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Sidebar fijo */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 220px;
+    background-color: var(--color-principal) !important;
+    color: white !important;
+    padding-top: 20px;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Contenido principal con margen para dejar espacio al sidebar */
 .main-content {
-    margin-left: 220px;    /* Deja espacio para el sidebar */
+    margin-left: 220px;
+    /* espacio para el sidebar fijo */
     padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    min-height: 100vh;
+    width: calc(100% - 220px);
+    /* ancho restante */
+    background-color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+/* Adaptación en pantallas pequeñas */
+@media (max-width: 767.98px) {
+    .sidebar {
+        position: relative !important;
+        width: 100% !important;
+        height: auto;
+        border-right: none;
+        box-shadow: none;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 10px 15px;
+    }
 }
 
 /* Estilo nav links */
 .sidebar .nav-link {
-    color: #333;
+    color: #cbd5e1;
+    transition: background-color 0.2s, color 0.2s;
     font-weight: 600;
 }
 
 .sidebar .nav-link:hover {
-    background-color: #e2e6ea;
-    color: #000;
+    background-color: var(--color-secundario);
+    color: white;
+}
+
+.sidebar .nav-link.active {
+    background-color: var(--color-acento);
+    color: white;
+}
+
+.btn-link.nav-link {
+    color: #f87171;
+}
+
+/*BOTONES CON ESTILOS*/
+.btn-warning {
+    border-radius: 25px !important;
+}
+
+.btn-danger {
+    border-radius: 25px !important;
+}
+
+.btn-primary {
+    border-radius: 25px !important;
+    background-color: var(--color-acento) !important;
+    --bs-btn-border-color: transparent !important;
+    --bs-btn-hover-border-color: var(--color-acento) !important;
+}
+
+.btn-secondary{
+    border-radius: 25px !important;
+}
+
+/*ESTILOS TABLAS*/
+
+/*Modificar clase table-dark para cambiar el color de fondo  con la variable*/
+.table-dark{
+    --bs-table-bg: var(--color-principal) !important;
+}
+
+.table-responsive {
+    background: #fff;
+}
+
+.table thead th {
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.btn-outline-warning {
+    background-color: #ffb700;
+    color: #fff;
+    border-radius: 25px !important;
+}
+.btn-outline-warning:hover {
+    color: #ffb700;
+    border-color: #ffb700;
+    background-color: white;
+}
+
+.btn-outline-danger {
+    background-color: #dc3545;
+    color: #fff; 
+    border-radius: 25px !important;   
+}
+.btn-outline-danger:hover {
+    color: #dc3545;
+    border-color: #dc3545;
+    background-color: white;
 }
