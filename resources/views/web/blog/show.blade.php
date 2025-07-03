@@ -19,7 +19,7 @@
 @endsection
 
 @section('content')
-<section id="contenedor-post" class="padding-contenedores fondo-platos-alternativo">
+<section id="contenedor-post" class="padding-contenedores fondo-fijo">
 <div class="post-container">
     <h1 class="post-title">{{ $post->titulo }}</h1>
     <p class="post-summary">{{ $post->resumen }}</p>
