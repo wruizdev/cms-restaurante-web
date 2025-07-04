@@ -8,14 +8,15 @@ use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\EstadisticasController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 
 
 // Dashboard genérico (se puede cambiar a prefijo admin después)
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
 // Rutas para el perfil (de Breeze)
 Route::middleware('auth')->group(function () {
