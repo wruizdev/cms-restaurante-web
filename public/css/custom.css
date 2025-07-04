@@ -148,3 +148,11 @@ body {
     border-color: #dc3545;
     background-color: white;
 }
+
+.fondo-cards-dashboard{
+    background-color: var(--color-secundario) !important;
+}
+
+.fondo-cards-dashboard:hover{
+    background-color: var(--color-principal) !important;
+}
