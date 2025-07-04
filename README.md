@@ -54,7 +54,7 @@ Antes de empezar asegúrate de tener instalado:
 ### 1. Clona el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/tu-repo.git
+git clone https://github.com/wruizdev/cms-restaurante-web.git
 cd tu-repo
 ```
 ### 2. Instalar dependencias
