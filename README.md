@@ -104,7 +104,9 @@ También está la opción de crear una base de datos desde interfaz gráfica con
 ```bash
 php artisan storage:link
 ``````
-Abre tu navegador en: http://localhost:8000
+Abre tu navegador para web en: http://localhost:8000
+
+Para panel admin: http://localhost:8000/login
 
 ---
 
