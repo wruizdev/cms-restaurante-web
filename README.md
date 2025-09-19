@@ -24,6 +24,11 @@ Proyecto completo que incluye una página web pública y un sistema de gestión 
 
 ---
 
+## Vídeo ilustrativo funcionamiento
+En el siguiente enlace: [Pulsa aquí](https://www.linkedin.com/posts/william-ruiz-lema-199bb2164_laravel-desarrolloweb-cms-activity-7348378103628320768-Cmk9?utm_source=share&utm_medium=member_desktop&rcm=ACoAACdVDYUBUZITvCma6zMGbm-eMb7jrMDOYSw)
+
+---
+
 ## Tecnologías utilizadas
 
 - Laravel 11
@@ -51,11 +56,11 @@ Antes de empezar asegúrate de tener instalado:
 
 ---
 
-### 1. Clona el repositorio
+### 1. Clonar el repositorio
 
 ```bash
 git clone https://github.com/wruizdev/cms-restaurante-web.git
-cd tu-repo
+cd tu-repositorio
 ```
 ### 2. Instalar dependencias
 ```bash
@@ -74,7 +79,7 @@ npm run build
 ``````
 
 
-### 4. Configura el entorno
+### 4. Configurar el entorno
 ```bash
 cp .env.example .env
 php artisan key:generate
